@@ -1,0 +1,15 @@
+{
+  "name": "cy-pageobjects",
+  "version": "1.0.0",
+  "description": "PageObjects",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress run"
+  },
+  "author": "adrianosantos",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^10.1.0",
+    "cypress": "^15.6.0"
+  }
+}
