@@ -14,7 +14,7 @@ class CarrinhoPage {
     cy.get('.checkout-button').click()
   }
 
-  // ✅ Remoção segura (apenas carrinho desktop visível)
+  
   removerProduto() {
     cy.get('form.woocommerce-cart-form')
       .find('a.remove')
