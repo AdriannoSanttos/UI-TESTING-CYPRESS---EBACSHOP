@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-01-13T19:54:21.155Z",
+    "end": "2026-01-13T19:54:25.312Z",
+    "duration": 4157,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7dd5f977-3bd3-4bcd-b426-cc454c4195e4",
+      "title": "",
+      "fullFile": "cypress\\e2e\\cadastroTest.cy.js",
+      "file": "cypress\\e2e\\cadastroTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7d1e7c03-af6f-4390-bcc8-e7c5f4f16649",
+          "title": "Cadastro na versão web - EBAC Shop",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve cadastrar um novo usuário com Faker",
+              "fullTitle": "Cadastro na versão web - EBAC Shop Deve cadastrar um novo usuário com Faker",
+              "timedOut": null,
+              "duration": 4106,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const dados = _cadastro.cadastroPage.gerarDados();\n_cadastro.cadastroPage.abrirTela() / _cadastro.cadastroPage.cadastrar(dados.email, dados.password);",
+              "err": {},
+              "uuid": "4d2fc8b2-a42c-44b1-b210-55b2d2bd6a59",
+              "parentUUID": "7d1e7c03-af6f-4390-bcc8-e7c5f4f16649",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4d2fc8b2-a42c-44b1-b210-55b2d2bd6a59"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4106,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

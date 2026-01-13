@@ -1,0 +1,337 @@
+{
+  "stats": {
+    "suites": 5,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "start": "2026-01-13T19:54:21.155Z",
+    "end": "2026-01-13T19:55:19.331Z",
+    "duration": 58176
+  },
+  "results": [
+    {
+      "uuid": "4a10ee36-2d1d-40a9-b449-8e1bda6abb0d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\carrinhoCheckout.cy.js",
+      "file": "cypress\\e2e\\carrinhoCheckout.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "70f80dc1-5e73-4890-bd45-201e56e0a693",
+          "title": "Fluxo completo: Cadastro, Carrinho e Checkout - Web",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve cadastrar usuário, adicionar produto ao carrinho e finalizar compra",
+              "fullTitle": "Fluxo completo: Cadastro, Carrinho e Checkout - Web Deve cadastrar usuário, adicionar produto ao carrinho e finalizar compra",
+              "timedOut": null,
+              "duration": 14660,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_cadastro.cadastroPage.abrirTela();\nconst dados = _cadastro.cadastroPage.gerarDados();\n_cadastro.cadastroPage.cadastrar(dados.email, dados.password);\n_home.homePage.abrirHome();\n_home.homePage.selecionarProduto(4104, 0);\n_produto.default.selecionarTamanho('XS');\n_produto.default.selecionarCor('White');\n_produto.default.adicionarAoCarrinho();\n_produto.default.validarMensagemCarrinho('Ingrid Running Jacket', 1) / _carrinho.default.verCarrinho();\n_carrinho.default.validarProdutoCarrinho('Ingrid Running Jacket - XS, White');\n_carrinho.default.concluirCompra();\n_checkout.default.preencherCheckout({\n  nome: 'Jose',\n  sobrenome: 'Santos',\n  endereco: 'Rua Exemplo, 123',\n  cidade: 'São Paulo',\n  cep: '01234-567',\n  telefone: '11999999999',\n  email: dados.email\n});\n_checkout.default.selecionarPagamentoNaEntrega();\n_checkout.default.aceitarTermosPrivacidade();\n_checkout.default.finalizarPedido();\n_checkout.default.validarPedidoRecebido();",
+              "err": {},
+              "uuid": "75a1fae4-4293-4d2b-857e-43acb3545a57",
+              "parentUUID": "70f80dc1-5e73-4890-bd45-201e56e0a693",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "75a1fae4-4293-4d2b-857e-43acb3545a57"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 14660,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "71ad22a3-f20d-46eb-a283-1f9733dedaf7",
+      "title": "",
+      "fullFile": "cypress\\e2e\\cartIntercept.cy.js",
+      "file": "cypress\\e2e\\cartIntercept.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "172f6d03-a6e6-4f7b-b671-c478d63e53ab",
+          "title": "Carrinho - Intercept API (V1)",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve adicionar produto ao carrinho validando a API com intercept",
+              "fullTitle": "Carrinho - Intercept API (V1) Deve adicionar produto ao carrinho validando a API com intercept",
+              "timedOut": null,
+              "duration": 13995,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const idProduto = 4104;\nconst nomeProduto = 'Ingrid Running Jacket';\nhomePage.selecionarProduto(idProduto);\nprodutoPage.selecionarTamanho('XS');\nprodutoPage.selecionarCor('White');\ncy.intercept('POST', '**/admin-ajax.php').as('addCart');\nprodutoPage.adicionarAoCarrinho();\ncy.wait('@addCart').then(intercept => {\n  expect(intercept.response.statusCode).to.eq(200);\n  expect(intercept.response.body).to.exist;\n});\nprodutoPage.validarMensagemCarrinho(nomeProduto);\nCarrinhoPage.verCarrinho();\nCarrinhoPage.validarProdutoCarrinho('Ingrid Running Jacket - XS, White');",
+              "err": {},
+              "uuid": "12e2d263-0e7c-4e7d-8b87-1c5ee8a6c0ec",
+              "parentUUID": "172f6d03-a6e6-4f7b-b671-c478d63e53ab",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "12e2d263-0e7c-4e7d-8b87-1c5ee8a6c0ec"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 13995,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "91ca49cd-7ee5-4746-a341-a8b9bb4f6893",
+      "title": "",
+      "fullFile": "cypress\\e2e\\cartRemoveIntercept.cy.js",
+      "file": "cypress\\e2e\\cartRemoveIntercept.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e793f441-b529-4e0e-9b4a-2010ee21e86c",
+          "title": "Carrinho - Remove Item com Intercept API (V1)",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve remover produto do carrinho validando a API com intercept",
+              "fullTitle": "Carrinho - Remove Item com Intercept API (V1) Deve remover produto do carrinho validando a API com intercept",
+              "timedOut": null,
+              "duration": 13081,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const idProduto = 4104;\nconst nomeProduto = 'Ingrid Running Jacket';\nhomePage.selecionarProduto(idProduto);\nprodutoPage.selecionarTamanho('XS');\nprodutoPage.selecionarCor('White');\ncy.intercept('POST', '**/admin-ajax.php').as('addCart');\nprodutoPage.adicionarAoCarrinho();\ncy.wait('@addCart').its('response.statusCode').should('eq', 200);\nprodutoPage.validarMensagemCarrinho(nomeProduto);\nCarrinhoPage.verCarrinho();\nCarrinhoPage.validarProdutoCarrinho('Ingrid Running Jacket - XS, White');\ncy.intercept('GET', '**/carrinho/?remove_item=*').as('removeItem');\ncy.get('form.woocommerce-cart-form').find('a.remove').first().click({\n  force: true\n});\ncy.wait('@removeItem').its('response.statusCode').should('be.oneOf', [200, 302]);\ncy.contains('Seu carrinho está vazio').should('be.visible');",
+              "err": {},
+              "uuid": "3a09802a-b584-46b3-9bae-44bb63933d63",
+              "parentUUID": "e793f441-b529-4e0e-9b4a-2010ee21e86c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3a09802a-b584-46b3-9bae-44bb63933d63"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 13081,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "061f37cf-6294-4375-b4bb-dda99c93b20f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\loginTest.cy.js",
+      "file": "cypress\\e2e\\loginTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8b61d932-0bfa-4d68-aca9-f542e5b1e856",
+          "title": "Teste de Autenticação - V1",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "deve fazer o login com sucesso",
+              "fullTitle": "Teste de Autenticação - V1 deve fazer o login com sucesso",
+              "timedOut": null,
+              "duration": 4648,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "loginPage.login(email, senha);\ncy.url().should('include', '/my-account');\ncy.contains('Olá').should('be.visible');",
+              "err": {},
+              "uuid": "d59f0519-4f55-482a-a907-f2428baf43de",
+              "parentUUID": "8b61d932-0bfa-4d68-aca9-f542e5b1e856",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d59f0519-4f55-482a-a907-f2428baf43de"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4648,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "7dd5f977-3bd3-4bcd-b426-cc454c4195e4",
+      "title": "",
+      "fullFile": "cypress\\e2e\\cadastroTest.cy.js",
+      "file": "cypress\\e2e\\cadastroTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7d1e7c03-af6f-4390-bcc8-e7c5f4f16649",
+          "title": "Cadastro na versão web - EBAC Shop",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve cadastrar um novo usuário com Faker",
+              "fullTitle": "Cadastro na versão web - EBAC Shop Deve cadastrar um novo usuário com Faker",
+              "timedOut": null,
+              "duration": 4106,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const dados = _cadastro.cadastroPage.gerarDados();\n_cadastro.cadastroPage.abrirTela() / _cadastro.cadastroPage.cadastrar(dados.email, dados.password);",
+              "err": {},
+              "uuid": "4d2fc8b2-a42c-44b1-b210-55b2d2bd6a59",
+              "parentUUID": "7d1e7c03-af6f-4390-bcc8-e7c5f4f16649",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4d2fc8b2-a42c-44b1-b210-55b2d2bd6a59"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4106,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
