@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-01-13T20:10:40.490Z",
+    "end": "2026-01-13T20:11:01.522Z",
+    "duration": 21032,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "cea46a2c-39b4-4c3f-be6d-fbd0770d9386",
+      "title": "",
+      "fullFile": "cypress/e2e/carrinhoCheckout.cy.js",
+      "file": "cypress/e2e/carrinhoCheckout.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6121ef43-f106-428c-96b2-2b38a7327f13",
+          "title": "Fluxo completo: Cadastro, Carrinho e Checkout - Web",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve cadastrar usuário, adicionar produto ao carrinho e finalizar compra",
+              "fullTitle": "Fluxo completo: Cadastro, Carrinho e Checkout - Web Deve cadastrar usuário, adicionar produto ao carrinho e finalizar compra",
+              "timedOut": null,
+              "duration": 20988,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_cadastro.cadastroPage.abrirTela();\nconst dados = _cadastro.cadastroPage.gerarDados();\n_cadastro.cadastroPage.cadastrar(dados.email, dados.password);\n_home.homePage.abrirHome();\n_home.homePage.selecionarProduto(4104, 0);\n_produto.default.selecionarTamanho('XS');\n_produto.default.selecionarCor('White');\n_produto.default.adicionarAoCarrinho();\n_produto.default.validarMensagemCarrinho('Ingrid Running Jacket', 1) / _carrinho.default.verCarrinho();\n_carrinho.default.validarProdutoCarrinho('Ingrid Running Jacket - XS, White');\n_carrinho.default.concluirCompra();\n_checkout.default.preencherCheckout({\n  nome: 'Jose',\n  sobrenome: 'Santos',\n  endereco: 'Rua Exemplo, 123',\n  cidade: 'São Paulo',\n  cep: '01234-567',\n  telefone: '11999999999',\n  email: dados.email\n});\n_checkout.default.selecionarPagamentoNaEntrega();\n_checkout.default.aceitarTermosPrivacidade();\n_checkout.default.finalizarPedido();\n_checkout.default.validarPedidoRecebido();",
+              "err": {},
+              "uuid": "80aff9a5-c398-4145-acb4-4055b2f46a44",
+              "parentUUID": "6121ef43-f106-428c-96b2-2b38a7327f13",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "80aff9a5-c398-4145-acb4-4055b2f46a44"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 20988,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
