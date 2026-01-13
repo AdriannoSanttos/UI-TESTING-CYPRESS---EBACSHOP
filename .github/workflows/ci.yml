@@ -1,5 +1,8 @@
 name: Cypress CI
 
+permissions:
+  contents: write
+
 on:
   push:
     branches:
