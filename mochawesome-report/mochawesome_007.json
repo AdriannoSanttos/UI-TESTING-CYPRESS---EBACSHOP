@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-01-16T18:07:36.165Z",
+    "end": "2026-01-16T18:07:51.618Z",
+    "duration": 15453,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "bed5dee8-4e0b-4fcd-8791-e01fa0b66912",
+      "title": "",
+      "fullFile": "cypress\\e2e\\cartIntercept.cy.js",
+      "file": "cypress\\e2e\\cartIntercept.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2f18712b-6550-47a8-848e-5605e9bf7a9b",
+          "title": "Carrinho - Intercept API (V1)",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve adicionar produto ao carrinho validando a API com intercept",
+              "fullTitle": "Carrinho - Intercept API (V1) Deve adicionar produto ao carrinho validando a API com intercept",
+              "timedOut": null,
+              "duration": 15412,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const idProduto = 4104;\nconst nomeProduto = 'Ingrid Running Jacket';\nhomePage.selecionarProduto(idProduto);\nprodutoPage.selecionarTamanho('XS');\nprodutoPage.selecionarCor('White');\ncy.intercept('POST', '**/admin-ajax.php').as('addCart');\nprodutoPage.adicionarAoCarrinho();\ncy.wait('@addCart').then(intercept => {\n  expect(intercept.response.statusCode).to.eq(200);\n  expect(intercept.response.body).to.exist;\n});\nprodutoPage.validarMensagemCarrinho(nomeProduto);\nCarrinhoPage.verCarrinho();\nCarrinhoPage.validarProdutoCarrinho('Ingrid Running Jacket - XS, White');",
+              "err": {},
+              "uuid": "944034ab-e95a-471d-b767-697a16445583",
+              "parentUUID": "2f18712b-6550-47a8-848e-5605e9bf7a9b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "944034ab-e95a-471d-b767-697a16445583"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 15412,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
