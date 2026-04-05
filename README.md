@@ -95,19 +95,9 @@ Os relatórios ficam em `mochawesome-report/`.
 - Gravação de vídeos apenas em falhas
 - Uso de variáveis de ambiente
 
-## 📄 Licença
-
-MIT – consulte o arquivo LICENSE (se existir).
 
 ## ✨ Autor
 
 Adriano Santos
 
 ![GitHub](https://img.shields.io/badge/GitHub-AdriannoSanttos-181717?logo=github)
-
-
-
-
-
-
-
